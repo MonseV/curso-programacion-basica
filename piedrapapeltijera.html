@@ -10,17 +10,18 @@
     let jugador = 0
     let pc = 2
     jugador = prompt("Elige: 1 para 🪨, 2 para 📄, 3 para ✂️" )
-    // alert("Elegiste " + jugador)
-    // CONDICION
-    if(jugador == 1){
+
+    // JUGADOR
+    if(jugador == 1 ){
         alert("Elegiste 🪨")
     } else if(jugador == 2){
         alert("Elegiste 📄")
     } else if(jugador == 3){
         alert("Elegiste ✂️")
     } else{
-        alert("Elegiste PERDER")
+        alert("Elegiste PERDER 😧")
     }
+    //PC
     if(pc == 1){
         alert("PC elige 🪨")
     } else if(pc == 2){
@@ -30,15 +31,11 @@
     }
     //COMBATE
     if(pc == jugador){
-        alert("EMPATE")
-    } else if(jugador == 1 && pc == 3){
-        alert("GANASTE")
-    } else if(jugador == 2 && pc ==  1){
-        alert("GANASTE")
-    } else if (jugador == 3 && pc == 2) {
-      alert("GANASTE")
+        alert("EMPATE 😐")
+    } else if((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)){
+        alert("GANASTE 🏆")
     } else{
-        alert("PERDISTE")
+        alert("PERDISTE 😞")
     }
   </script>
   <body>
