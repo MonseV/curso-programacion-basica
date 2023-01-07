@@ -10,27 +10,33 @@
     function aleatorio(min, max){
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
+
     //declaración de función eleccion
-    function opciones(eleccion){
-        if (eleccion == 1) {
-            return "🪨"
-        } else if (eleccion == 2) {
-            return "📄"
-        } else if (eleccion == 3) {
-            return "✂️"
+    function eleccion(jugada){
+        let resultado = ""
+        if (jugada == 1) {
+            resultado = "Piedra 🪨"
+        } else if (jugada == 2) {
+            resultado = "Papel 📄"
+        } else if (jugada == 3) {
+            resultado = "Tijera ✂️"
         } else {
-            return "PERDER 😧"
+            resultado = "MAL ELEGIDO"
         }
+        return resultado
     }
+
     // 1 es piedra, 2 es papel, 3 es tijera
     let jugador = 0
     //invocación de función para que el pc eliga aleatoriamente
     let pc = aleatorio(1,3)
     jugador = prompt("Elige: 1 para 🪨, 2 para 📄, 3 para ✂️" )
-    //invocación de la elección del USUARIO
-    alert("Elegiste " + (opciones(jugador)));
+
     //invocación de la elección del PC
-    alert("PC elige " + (opciones(pc)));
+    alert("PC elige: " + eleccion(pc));
+    //invocación de la elección del USUARIO
+    alert("Tu eliges: " + eleccion(jugador));
+
     //COMBATE
     if(pc == jugador){
         alert("EMPATE 😐")
