@@ -26,6 +26,19 @@
         return resultado
     }
 
+    //declaración de función quien gana
+    function combate(pc, jugador){
+        let ganador = ""
+        if (pc == jugador) {
+            ganador = "EMPATE 😐"
+        } else if ((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)) {
+            ganador = "GANASTE 🏆"
+        } else {
+            ganador = "PERDISTE 😞"
+        }
+        return ganador
+    }
+
     // 1 es piedra, 2 es papel, 3 es tijera
     let jugador = 0
     //invocación de función para que el pc eliga aleatoriamente
@@ -33,18 +46,12 @@
     jugador = prompt("Elige: 1 para 🪨, 2 para 📄, 3 para ✂️" )
 
     //invocación de la elección del PC
-    alert("PC elige: " + eleccion(pc));
+    alert("PC elige: " + (eleccion(pc)));
     //invocación de la elección del USUARIO
-    alert("Tu eliges: " + eleccion(jugador));
+    alert("Tu eliges: " + (eleccion(jugador)));
 
-    //COMBATE
-    if(pc == jugador){
-        alert("EMPATE 😐")
-    } else if((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)){
-        alert("GANASTE 🏆")
-    } else{
-        alert("PERDISTE 😞")
-    }
+    //invocación del COMBATE
+    alert(combate(pc, jugador));
   </script>
   <body>
     <h1>Piedra, papel o tijera</h1>
