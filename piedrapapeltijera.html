@@ -26,32 +26,38 @@
         return resultado
     }
 
-    //declaración de función quien gana
-    function combate(pc, jugador){
-        let ganador = ""
-        if (pc == jugador) {
-            ganador = "EMPATE 😐"
-        } else if ((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)) {
-            ganador = "GANASTE 🏆"
-        } else {
-            ganador = "PERDISTE 😞"
-        }
-        return ganador
-    }
-
     // 1 es piedra, 2 es papel, 3 es tijera
     let jugador = 0
     //invocación de función para que el pc eliga aleatoriamente
-    let pc = aleatorio(1,3)
-    jugador = prompt("Elige: 1 para 🪨, 2 para 📄, 3 para ✂️" )
+    let pc = 0
+    let triunfos = 0
+    let perdidas = 0
 
-    //invocación de la elección del PC
-    alert("PC elige: " + (eleccion(pc)));
-    //invocación de la elección del USUARIO
-    alert("Tu eliges: " + (eleccion(jugador)));
+    //CICLO
+    // mientras triunfos y perdidas sean menor que 3
+    while (triunfos < 3 && perdidas < 3) {
+        // cada vez que entra tienen que elegir otra opcion
+        pc = aleatorio(1,3)
+        jugador = prompt("Elige: 1 para 🪨, 2 para 📄, 3 para ✂️" )
 
-    //invocación del COMBATE
-    alert(combate(pc, jugador));
+        //invocación de la elección del PC
+        alert("PC elige: " + eleccion(pc));
+        //invocación de la elección del USUARIO
+        alert("Tu eliges: " + eleccion(jugador));
+
+        //COMBATE
+        if(pc == jugador){
+            alert("EMPATE 😐")
+        } else if((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)){
+            alert("GANASTE 🏆")
+            triunfos = triunfos + 1;
+        } else{
+            alert("PERDISTE 😞")
+            perdidas = perdidas + 1;
+        }
+    }
+    alert("Ganaste " + triunfos + " veces. Perdiste " + perdidas + " veces.")
+
   </script>
   <body>
     <h1>Piedra, papel o tijera</h1>
