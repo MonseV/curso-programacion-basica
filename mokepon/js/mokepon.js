@@ -1,3 +1,6 @@
+//varible global
+let ataqueJugador
+
 function iniciarJuego() {
 
   // se le va asigna el elemento por id,
@@ -5,6 +8,11 @@ function iniciarJuego() {
 
   // cuando se escucha el evento click se llama la funcion
   botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
+
+  // aqui van los event listener de los botones de los ataques
+  let botonFuego
+  let botonAgua
+  let botonTierra
 }
 
 //funcion que ejecutara
@@ -26,7 +34,7 @@ function seleccionarMascotaJugador() {
   else {
     alert("Selecciona una mascota")
   }
-  
+
   seleccionarMascotaEnemigo()
 }
 
