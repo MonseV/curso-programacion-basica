@@ -26,18 +26,19 @@ function seleccionarMascotaJugador() {
   else {
     alert("Selecciona una mascota")
   }
+  
   seleccionarMascotaEnemigo()
 }
 
 function seleccionarMascotaEnemigo() {
-  let mascota = aleatorio(1,3)
+  let ataqueAleatorio = aleatorio(1,3)
   let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
-  if (mascota == 1) {
+  if (ataqueAleatorio == 1) {
     spanMascotaEnemigo.innerHTML = 'Hipodoge'
-  } else if (mascota == 2) {
+  } else if (ataqueAleatorio == 2) {
     spanMascotaEnemigo.innerHTML = 'Capipepo'
-  } else if (mascota == 3) {
+  } else {
     seleccionarMascotaEnemigo.innerHTML = 'Ratigueya'
   }
 }
