@@ -26,6 +26,24 @@ function seleccionarMascotaJugador() {
   else {
     alert("Selecciona una mascota")
   }
+  seleccionarMascotaEnemigo()
+}
+
+function seleccionarMascotaEnemigo() {
+  let mascota = aleatorio(1,3)
+  let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+
+  if (mascota == 1) {
+    spanMascotaEnemigo.innerHTML = 'Hipodoge'
+  } else if (mascota == 2) {
+    spanMascotaEnemigo.innerHTML = 'Capipepo'
+  } else if (mascota == 3) {
+    seleccionarMascotaEnemigo.innerHTML = 'Ratigueya'
+  }
+}
+
+function aleatorio(min, max){
+  return Math.floor(Math.random() * (max - min +1) + min)
 }
 
 // cuando se escucha el evento cargar(carga todo el HTML) se llama la funcion
