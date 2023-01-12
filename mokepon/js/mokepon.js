@@ -59,16 +59,30 @@ function seleccionarMascotaEnemigo() {
 function ataqueFuego () {
   ataqueJugador = 'FUEGO'
   alert(ataqueJugador)
+  alert(ataqueEnemigo())
 }
 
 function ataqueAgua () {
   ataqueJugador = 'AGUA'
   alert(ataqueJugador)
+  alert(ataqueEnemigo())
 }
 
 function ataqueTierra () {
   ataqueJugador = 'TIERRA'
   alert(ataqueJugador)
+  alert(ataqueEnemigo())
+}
+
+function ataqueEnemigo (){
+  let ataqueAleatorioEnemigo = aleatorio(1,3)
+  if (ataqueAleatorioEnemigo == 1) {
+    ataque = 'FUEGO'
+  } else if (ataqueAleatorioEnemigo == 2) {
+    ataque = 'AGUA'
+  } else {
+    ataque = 'TIERRA'
+  }
 }
 
 function aleatorio(min, max){
