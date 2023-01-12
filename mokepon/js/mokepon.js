@@ -1,4 +1,4 @@
-//varible global
+//varible global -> se puede utilizar en cualquier parte del codigo
 let ataqueJugador
 
 function iniciarJuego() {
@@ -10,9 +10,14 @@ function iniciarJuego() {
   botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 
   // aqui van los event listener de los botones de los ataques
-  let botonFuego
-  let botonAgua
-  let botonTierra
+  let botonFuego = document.getElementById('boton-fuego')
+  botonFuego.addEventListener('click',ataqueFuego)
+
+  let botonAgua = document.getElementById('boton-agua')
+  botonAgua.addEventListener('click',ataqueAgua)
+
+  let botonTierra = document.getElementById('boton-tierra')
+  botonTierra.addEventListener('click',ataqueTierra)
 }
 
 //funcion que ejecutara
@@ -49,6 +54,21 @@ function seleccionarMascotaEnemigo() {
   } else {
     seleccionarMascotaEnemigo.innerHTML = 'Ratigueya'
   }
+}
+
+function ataqueFuego () {
+  ataqueJugador = 'FUEGO'
+  alert(ataqueJugador)
+}
+
+function ataqueAgua () {
+  ataqueJugador = 'AGUA'
+  alert(ataqueJugador)
+}
+
+function ataqueTierra () {
+  ataqueJugador = 'TIERRA'
+  alert(ataqueJugador)
 }
 
 function aleatorio(min, max){
