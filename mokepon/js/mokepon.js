@@ -60,23 +60,21 @@ function seleccionarMascotaEnemigo() {
 function ataqueFuego () {
   ataqueJugador = 'FUEGO'
   ataqueAleatorioEnemigo()
-  addElement()
 }
 
 function ataqueAgua () {
   ataqueJugador = 'AGUA'
   ataqueAleatorioEnemigo()
-  addElement()
 }
 
 function ataqueTierra () {
   ataqueJugador = 'TIERRA'
   ataqueAleatorioEnemigo()
-  addElement()
 }
 
 function ataqueAleatorioEnemigo (){
   let ataqueAleatorio = aleatorio(1,3)
+
   if (ataqueAleatorio == 1) {
     ataqueEnemigo = 'FUEGO'
   } else if (ataqueAleatorio == 2) {
@@ -84,18 +82,22 @@ function ataqueAleatorioEnemigo (){
   } else {
     ataqueEnemigo = 'TIERRA'
   }
+
+  /* cuando ya tenemos los dos ataques se llama*/
+  crearMensaje()
 }
 
-function addElement() {
-  // crea un nuevo parrafo y añade el contenido
-  let newParrafo = document.createElement('p')
-  let newContenido = document.createTextNode("Tu ataque: " + ataqueJugador + " y el de tu enemigo: " + ataqueEnemigo)
-  // añade texto al parrafo creado
-  newParrafo.appendChild(newContenido)
+function crearMensaje () {
+  // se obtiene el elemento donde se insertara el parrafo por id
+  let sectionMensajes = document.getElementById('mensajes')
 
-  // añade el elemento creado y su contenido al DOM
-  let actualSeccion = document.getElementById('mensajes')
-  document.body.insertBefore(newParrafo, actualSeccion)
+  // crea un nuevo parrafo
+  let parrafo = document.createElement('p')
+  // añade texto al parrafo creado
+  parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + '- PENDIENTE '
+
+  // añade el elemento creado al DOM
+  sectionMensajes.appendChild(parrafo)
 }
 
 function aleatorio(min, max){
