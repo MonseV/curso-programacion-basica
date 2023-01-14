@@ -60,16 +60,19 @@ function seleccionarMascotaEnemigo() {
 function ataqueFuego () {
   ataqueJugador = 'FUEGO'
   ataqueAleatorioEnemigo()
+  addElement()
 }
 
 function ataqueAgua () {
   ataqueJugador = 'AGUA'
   ataqueAleatorioEnemigo()
+  addElement()
 }
 
 function ataqueTierra () {
   ataqueJugador = 'TIERRA'
   ataqueAleatorioEnemigo()
+  addElement()
 }
 
 function ataqueAleatorioEnemigo (){
@@ -81,6 +84,18 @@ function ataqueAleatorioEnemigo (){
   } else {
     ataqueEnemigo = 'TIERRA'
   }
+}
+
+function addElement() {
+  // crea un nuevo parrafo y añade el contenido
+  let newParrafo = document.createElement('p')
+  let newContenido = document.createTextNode("Tu ataque: " + ataqueJugador + " y el de tu enemigo: " + ataqueEnemigo)
+  // añade texto al parrafo creado
+  newParrafo.appendChild(newContenido)
+
+  // añade el elemento creado y su contenido al DOM
+  let actualSeccion = document.getElementById('mensajes')
+  document.body.insertBefore(newParrafo, actualSeccion)
 }
 
 function aleatorio(min, max){
