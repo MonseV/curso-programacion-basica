@@ -89,17 +89,14 @@ function ataqueAleatorioEnemigo() {
 function combate() {
   if (ataqueEnemigo == ataqueJugador) {
     crearMensaje("EMPATE 😐")
-  } else if (ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA'){
-    crearMensaje("PERDISTE 😞")
-  } else if (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
-    crearMensaje("GANASTE 🏆")
-  } else if (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+  } else if ((ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') || (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'FUEGO') || (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA')) {
     crearMensaje("GANASTE 🏆")
   } else {
     crearMensaje("PERDISTE 😞")
   }
 }
 
+// resultado, parametro que se recibe de la funcion combate
 function crearMensaje(resultado) {
 
   // se obtiene el elemento donde se insertara el parrafo por id
