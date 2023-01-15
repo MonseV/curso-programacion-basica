@@ -83,11 +83,24 @@ function ataqueAleatorioEnemigo() {
     ataqueEnemigo = 'TIERRA'
   }
 
-  /* cuando ya tenemos los dos ataques se llama*/
-  crearMensaje()
+  combate()
 }
 
-function crearMensaje() {
+function combate() {
+  if (ataqueEnemigo == ataqueJugador) {
+    crearMensaje("EMPATE 😐")
+  } else if (ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA'){
+    crearMensaje("PERDISTE 😞")
+  } else if (ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
+    crearMensaje("GANASTE 🏆")
+  } else if (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+    crearMensaje("GANASTE 🏆")
+  } else {
+    crearMensaje("PERDISTE 😞")
+  }
+}
+
+function crearMensaje(resultado) {
 
   // se obtiene el elemento donde se insertara el parrafo por id
   let sectionMensajes = document.getElementById('mensajes')
@@ -95,23 +108,11 @@ function crearMensaje() {
   // crea un nuevo parrafo
   let parrafo = document.createElement('p')
   // añade texto al parrafo creado
-  parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + (combate(ataqueJugador, ataqueEnemigo))
-
+  parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultado
   // añade el elemento creado al DOM
   sectionMensajes.appendChild(parrafo)
 }
 
-function combate(jugador, enemigo) {
-  let resultado = ''
-  if ((jugador == 'FUEGO' && enemigo == 'FUEGO') || (jugador == 'AGUA' && enemigo == 'AGUA') || (jugador == 'TIERRA' && enemigo == 'TIERRA')) {
-    resultado = "EMPATE 😐"
-  } else if ((jugador == 'AGUA' && enemigo == 'FUEGO') || (jugador == 'TIERRA' && enemigo == 'FUEGO') || (jugador == 'TIERRA' && enemigo == 'AGUA')) {
-    resultado = "GANASTE 🏆"
-  } else {
-    resultado = "PERDISTE 😞"
-  }
-  return resultado
-}
 
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
