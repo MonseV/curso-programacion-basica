@@ -113,10 +113,10 @@ function combate() {
 function revisarVidas() {
   if(vidasEnemigo == 0) {
     // GANAMOS
-    alert("¡Felicitaciones!, ¡¡¡GANASTE 🏆!!!")
+    crearMensajeFinal("FELICITACIONES! Ganaste :)")
   } else if (vidasJugador == 0) {
     // PERDIMOS
-    alert("¡¡¡PERDISTE 😞!!!, Puedes volver a intentarlo")
+    crearMensajeFinal("Lo siento, perdiste :(")
   }
 }
 
@@ -130,6 +130,18 @@ function crearMensaje(resultado) {
   let parrafo = document.createElement('p')
   // añade texto al parrafo creado
   parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultado
+  // añade el elemento creado al DOM
+  sectionMensajes.appendChild(parrafo)
+}
+
+function crearMensajeFinal(resultadoFinal) {
+  // se obtiene el elemento donde se insertara el parrafo por id
+  let sectionMensajes = document.getElementById('mensajes')
+
+  // crea un nuevo parrafo
+  let parrafo = document.createElement('p')
+  // añade texto al parrafo creado
+  parrafo.innerHTML = resultadoFinal
   // añade el elemento creado al DOM
   sectionMensajes.appendChild(parrafo)
 }
