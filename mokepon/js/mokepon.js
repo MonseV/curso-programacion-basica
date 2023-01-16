@@ -1,6 +1,8 @@
 //varible global -> se puede utilizar en cualquier parte del codigo
 let ataqueJugador
 let ataqueEnemigo
+let vidasJugador = 3
+let vidasEnemigo = 3
 
 function iniciarJuego() {
 
@@ -87,12 +89,22 @@ function ataqueAleatorioEnemigo() {
 }
 
 function combate() {
+  // el cambio de vidas se realiza aquí
+  let spanVidasJugador = document.getElementById('vidas-jugador')
+  let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
   if (ataqueEnemigo == ataqueJugador) {
     crearMensaje("EMPATE 😐")
   } else if ((ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') || (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'FUEGO') || (ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA')) {
     crearMensaje("GANASTE 🏆")
+    // como ganamos por lo tanto pierde el enemigo
+    vidasEnemigo--
+    spanVidasEnemigo.innerHTML = vidasEnemigo
+
   } else {
     crearMensaje("PERDISTE 😞")
+    vidasJugador--
+    spanVidasJugador.innerHTML = vidasJugador
   }
 }
 
