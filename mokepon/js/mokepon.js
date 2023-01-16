@@ -106,6 +106,18 @@ function combate() {
     vidasJugador--
     spanVidasJugador.innerHTML = vidasJugador
   }
+  // revisar vidas
+  revisarVidas()
+}
+
+function revisarVidas() {
+  if(vidasEnemigo == 0) {
+    // GANAMOS
+    alert("¡Felicitaciones!, ¡¡¡GANASTE 🏆!!!")
+  } else if (vidasJugador == 0) {
+    // PERDIMOS
+    alert("¡¡¡PERDISTE 😞!!!, Puedes volver a intentarlo")
+  }
 }
 
 // resultado, parametro que se recibe de la funcion combate
