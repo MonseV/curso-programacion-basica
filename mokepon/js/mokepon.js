@@ -21,6 +21,9 @@ function iniciarJuego() {
 
   let botonTierra = document.getElementById('boton-tierra')
   botonTierra.addEventListener('click', ataqueTierra)
+
+  let botonReiniciar = document.getElementById('boton-reiniciar')
+  botonReiniciar.addEventListener('click', reiniciarJuego)
 }
 
 //funcion que ejecutara
@@ -55,7 +58,7 @@ function seleccionarMascotaEnemigo() {
   } else if (mascotaAleatoria == 2) {
     spanMascotaEnemigo.innerHTML = 'Capipepo'
   } else {
-    seleccionarMascotaEnemigo.innerHTML = 'Ratigueya'
+    spanMascotaEnemigo.innerHTML = 'Ratigueya'
   }
 }
 
@@ -111,7 +114,7 @@ function combate() {
 }
 
 function revisarVidas() {
-  if(vidasEnemigo == 0) {
+  if (vidasEnemigo == 0) {
     // GANAMOS
     crearMensajeFinal("FELICITACIONES! Ganaste :)")
   } else if (vidasJugador == 0) {
@@ -146,6 +149,26 @@ function crearMensajeFinal(resultadoFinal) {
   sectionMensajes.appendChild(parrafo)
 }
 
+function reiniciarJuego() {
+  let spanMascotaJugador = document.getElementById('mascota-jugador')
+  let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+  let inputHipodoge = document.getElementById('hipodoge')
+  let inputCapipepo = document.getElementById('capipepo')
+  let inputRatigueya = document.getElementById('ratigueya')
+  let sectionMensajes = document.getElementById('mensajes')
+  let spanVidasJugador = document.getElementById('vidas-jugador')
+  let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
+  spanMascotaJugador.innerHTML = ''
+  spanMascotaEnemigo.innerHTML = ''
+  inputHipodoge.checked = false
+  inputCapipepo.checked = false
+  inputRatigueya.checked = false
+  sectionMensajes.innerHTML = ''
+  spanVidasJugador.innerHTML = 3
+  spanVidasEnemigo.innerHTML = 3
+
+}
 
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
